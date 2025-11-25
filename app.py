@@ -1,9 +1,13 @@
+import os
 import streamlit as st
 import pandas as pd
 import pickle
 
-# ML 모델 로드
+# 현재 디렉토리 출력 (debug)
+st.write("현재 디렉토리:", os.listdir())
+
 model = pickle.load(open("model.pkl", "rb"))
+
 
 st.title("🎤 공연 위험도 예측 서비스 (AV-HSI Predictor)")
 
@@ -36,3 +40,4 @@ if st.button("예측하기"):
         label = "1단계 (안전)"
 
     st.subheader(f"🚦 위험등급: {label}")
+
